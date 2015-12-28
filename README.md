@@ -1,7 +1,7 @@
-# Reinforcement Learning in Tic-Tac-Toe, *learning by random self-playing*
+# Reinforcement Learning in 3x3 Tic-Tac-Toe, *learning by random self-playing*
 > Implementation in Python (2 or 3), forked from [tansey/rl-tictactoe](https://github.com/tansey/rl-tictactoe).
 
-A quick Python implementation of the *Tic-Tac-Toe* **value function learning agent** described in Chapter 1 of
+A quick Python implementation of the **3x3** *Tic-Tac-Toe* **value function learning agent** described in Chapter 1 of
 ["Reinforcement Learning: An Introduction" by Sutton and Barto](http://webdocs.cs.ualberta.ca/~sutton/book/the-book.html).
 
 ----
@@ -19,6 +19,9 @@ See the figure below for an example of what is achieved with this rather simple 
 ![Main example](selfplay_random_-1loss.png "Example of selfplay vs random")
 
 Numerical results are also available in the (long) <results.csv>.
+
+### Limitation
+> Only 3 by 3 (3x3) Tic-Tac-Toe is implemented.
 
 ----
 
