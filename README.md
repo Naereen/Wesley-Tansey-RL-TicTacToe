@@ -18,7 +18,7 @@ python2 tictactoe.py | tee ./tictactoe.log
 See the figure below for an example of what is achieved with this rather simple implementation:
 ![Main example](selfplay_random_-1loss.png "Example of selfplay vs random")
 
-Numerical results are also available in the (long) <results.csv>.
+Numerical results are also available in the (long) [results.csv](results.csv) CSV file.
 
 ### Limitation
 > Only 3 by 3 (3x3) Tic-Tac-Toe is implemented.
