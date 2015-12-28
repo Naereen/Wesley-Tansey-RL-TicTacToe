@@ -1,17 +1,19 @@
 #!/usr/bin/env python2
 # -*- coding: utf8 -*-
 """
-Reference implementation of the Tic-Tac-Toe value function learning agent described in Chapter 1 of 
-"Reinforcement Learning: An Introduction" by Sutton and Barto. The agent contains a lookup table that
-maps states to values, where initial values are 1 for a win, 0 for a draw or loss, and 0.5 otherwise.
-At every move, the agent chooses either the maximum-value move (greedy) or, with some probability
-epsilon, a random move (exploratory); by default epsilon=0.1. The agent updates its value function 
-(the lookup table) after every greedy move, following the equation:
+Reference implementation of the Tic-Tac-Toe value function learning agent described in Chapter 1 of "Reinforcement Learning: An Introduction" by Sutton and Barto.
+
+
+The agent contains a lookup table that maps states to values,
+where initial values are 1 for a win, 0 for a draw or loss, and 0.5 otherwise.
+At every move, the agent chooses either the maximum-value move (greedy) or,
+with some probability epsilon, a random move (exploratory); by default epsilon=0.1.
+The agent updates its value function (the lookup table) after every greedy move, following the equation:
 
     V(s) <- V(s) + alpha * [ V(s') - V(s) ]
 
 This particular implementation addresses the question posed in Exercise 1.1:
-    
+
     What would happen if the RL agent taught itself via self-play?
 
 The result is that the agent learns only how to maximize its own potential payoff, without consideration
@@ -19,9 +21,10 @@ for whether it is playing to a win or a draw. Even more to the point, the agent 
 where it basically has a single path that it wants to take to reach a winning state. If the path is blocked
 by the opponent, the values will then usually all become 0.5 and the player is effectively moving randomly.
 
-Created by Wesley Tansey
-1/21/2013
-Code released under the MIT license.
+
+## License
+- Created by Wesley Tansey, 1/21/2013
+- Code released under the [MIT license](http://mit-license.org).
 """
 
 import random
@@ -36,6 +39,8 @@ DRAW = 3
 
 BOARD_FORMAT = "----------------------------\n| {0} | {1} | {2} |\n|--------------------------|\n| {3} | {4} | {5} |\n|--------------------------|\n| {6} | {7} | {8} |\n----------------------------"
 NAMES = [' ', 'X', 'O']
+
+
 def printboard(state):
     cells = []
     for i in range(3):
@@ -43,8 +48,10 @@ def printboard(state):
             cells.append(NAMES[state[i][j]].center(6))
     print(BOARD_FORMAT.format(*cells))
 
+
 def emptystate():
-    return [[EMPTY,EMPTY,EMPTY],[EMPTY,EMPTY,EMPTY],[EMPTY,EMPTY,EMPTY]]
+    return [[EMPTY, EMPTY, EMPTY], [EMPTY, EMPTY, EMPTY], [EMPTY, EMPTY, EMPTY]]
+
 
 def gameover(state):
     for i in range(3):
@@ -61,6 +68,7 @@ def gameover(state):
             if state[i][j] == EMPTY:
                 return EMPTY
     return DRAW
+
 
 def last_to_act(state):
     countx = 0
@@ -93,8 +101,10 @@ def enumstates(state, idx, agent):
             state[i][j] = val
             enumstates(state, idx+1, agent)
 
+
 class Agent(object):
-    def __init__(self, player, verbose = False, lossval = 0, learning = True):
+
+    def __init__(self, player, verbose=False, lossval=0, learning=True):
         self.values = {}
         self.player = player
         self.verbose = verbose
@@ -131,7 +141,7 @@ class Agent(object):
         for i in range(3):
             for j in range(3):
                 if state[i][j] == EMPTY:
-                    available.append((i,j))
+                    available.append((i, j))
         return random.choice(available)
 
     def greedy(self, state):
@@ -158,12 +168,12 @@ class Agent(object):
         return maxmove
 
     def backup(self, nextval):
-        if self.prevstate != None and self.learning:
+        if self.prevstate is not None and self.learning:
             self.values[self.prevstate] += self.alpha * (nextval - self.prevscore)
 
     def lookup(self, state):
         key = self.statetuple(state)
-        if not key in self.values:
+        if key not in self.values:
             self.add(key)
         return self.values[key]
 
@@ -185,7 +195,7 @@ class Agent(object):
     def printvalues(self):
         vals = deepcopy(self.values)
         for key in vals:
-            state = [list(key[0]),list(key[1]),list(key[2])]
+            state = [list(key[0]), list(key[1]), list(key[2])]
             cells = []
             for i in range(3):
                 for j in range(3):
@@ -198,11 +208,12 @@ class Agent(object):
             print(BOARD_FORMAT.format(*cells))
 
     def statetuple(self, state):
-        return (tuple(state[0]),tuple(state[1]),tuple(state[2]))
+        return (tuple(state[0]), tuple(state[1]), tuple(state[2]))
 
     def log(self, s):
         if self.verbose:
             print(s)
+
 
 class Human(object):
     def __init__(self, player):
@@ -211,13 +222,14 @@ class Human(object):
     def action(self, state):
         printboard(state)
         action = str(input('Your move? '))
-        return (int(action.split(',')[0]),int(action.split(',')[1]))
+        return (int(action.split(',')[0]), int(action.split(',')[1]))
 
     def episode_over(self, winner):
         if winner == DRAW:
             print('Game over! It was a draw.')
         else:
             print('Game over! Winner: Player {0}'.format(winner))
+
 
 def play(agent1, agent2):
     state = emptystate()
@@ -232,6 +244,7 @@ def play(agent1, agent2):
             return winner
     return winner
 
+
 def measure_performance_vs_random(agent1, agent2):
     epsilon1 = agent1.epsilon
     epsilon2 = agent2.epsilon
@@ -243,7 +256,7 @@ def measure_performance_vs_random(agent1, agent2):
     r2 = Agent(2)
     r1.epsilon = 1
     r2.epsilon = 1
-    probs = [0,0,0,0,0,0]
+    probs = [0, 0, 0, 0, 0, 0]
     games = 100
     for i in range(games):
         winner = play(agent1, r2)
@@ -267,14 +280,15 @@ def measure_performance_vs_random(agent1, agent2):
     agent2.learning = True
     return probs
 
+
 def measure_performance_vs_each_other(agent1, agent2):
-    #epsilon1 = agent1.epsilon
-    #epsilon2 = agent2.epsilon
-    #agent1.epsilon = 0
-    #agent2.epsilon = 0
-    #agent1.learning = False
-    #agent2.learning = False
-    probs = [0,0,0]
+    # epsilon1 = agent1.epsilon
+    # epsilon2 = agent2.epsilon
+    # agent1.epsilon = 0
+    # agent2.epsilon = 0
+    # agent1.learning = False
+    # agent2.learning = False
+    probs = [0, 0, 0]
     games = 100
     for i in range(games):
         winner = play(agent1, agent2)
@@ -284,26 +298,26 @@ def measure_performance_vs_each_other(agent1, agent2):
             probs[1] += 1.0 / games
         else:
             probs[2] += 1.0 / games
-    #agent1.epsilon = epsilon1
-    #agent2.epsilon = epsilon2
-    #agent1.learning = True
-    #agent2.learning = True
+    # agent1.epsilon = epsilon1
+    # agent2.epsilon = epsilon2
+    # agent1.learning = True
+    # agent2.learning = True
     return probs
 
 
 if __name__ == "__main__":
-    p1 = Agent(1, lossval = -1)
-    p2 = Agent(2, lossval = -1)
-    r1 = Agent(1, learning = False)
-    r2 = Agent(2, learning = False)
+    p1 = Agent(1, lossval=-1)
+    p2 = Agent(2, lossval=-1)
+    r1 = Agent(1, learning=False)
+    r2 = Agent(2, learning=False)
     r1.epsilon = 1
     r2.epsilon = 1
-    series = ['P1-Win','P1-Lose','P1-Draw','P2-Win','P2-Lose','P2-Draw']
+    series = ['P1-Win', 'P1-Lose', 'P1-Draw', 'P2-Win', 'P2-Lose', 'P2-Draw']
     #series = ['P1-Win', 'P2-Win', 'Draw']
-    colors = ['r','b','g','c','m','b']
+    colors = ['r', 'b', 'g', 'c', 'm', 'b']
     markers = ['+', '.', 'o', '*', '^', 's']
     f = open('results.csv', 'wb')
-    writer = csv.writer(f)    
+    writer = csv.writer(f)
     writer.writerow(series)
     perf = [[] for _ in range(len(series) + 1)]
     for i in range(10000):
@@ -313,26 +327,28 @@ if __name__ == "__main__":
             writer.writerow(probs)
             f.flush()
             perf[0].append(i)
-            for idx,x in enumerate(probs):
+            for idx, x in enumerate(probs):
                 perf[idx+1].append(x)
-        winner = play(p1,p2)
+        winner = play(p1, p2)
         p1.episode_over(winner)
-        #winner = play(r1,p2)
+        # winner = play(r1, p2)
         p2.episode_over(winner)
     f.close()
-    for i in range(1,len(perf)):
+    for i in range(1, len(perf)):
         plt.plot(perf[0], perf[i], label=series[i-1], color=colors[i-1])
     plt.xlabel('Episodes')
     plt.ylabel('Probability')
     plt.title('RL Agent Performance vs. Random Agent\n({0} loss value, self-play)'.format(p1.lossval))
-    #plt.title('P1 Loss={0} vs. P2 Loss={1}'.format(p1.lossval, p2.lossval))
+    # plt.title('P1 Loss={0} vs. P2 Loss={1}'.format(p1.lossval, p2.lossval))
     plt.legend()
-    #plt.show()
-    #plt.savefig('p1loss{0}vsp2loss{1}.png'.format(p1.lossval, p2.lossval))
+    # plt.show()
+    # plt.savefig('p1loss{0}vsp2loss{1}.png'.format(p1.lossval, p2.lossval))
     plt.savefig('selfplay_random_{0}loss.png'.format(p1.lossval))
     while True:
         p2.verbose = True
         p1 = Human(1)
-        winner = play(p1,p2)
+        winner = play(p1, p2)
         p1.episode_over(winner)
         p2.episode_over(winner)
+
+# End of tictactoe.py
