@@ -1,3 +1,5 @@
+#!/usr/bin/env python2
+# -*- coding: utf8 -*-
 """
 Reference implementation of the Tic-Tac-Toe value function learning agent described in Chapter 1 of 
 "Reinforcement Learning: An Introduction" by Sutton and Barto. The agent contains a lookup table that
@@ -39,7 +41,7 @@ def printboard(state):
     for i in range(3):
         for j in range(3):
             cells.append(NAMES[state[i][j]].center(6))
-    print BOARD_FORMAT.format(*cells)
+    print(BOARD_FORMAT.format(*cells))
 
 def emptystate():
     return [[EMPTY,EMPTY,EMPTY],[EMPTY,EMPTY,EMPTY],[EMPTY,EMPTY,EMPTY]]
@@ -85,7 +87,7 @@ def enumstates(state, idx, agent):
         winner = gameover(state)
         if winner != EMPTY:
             return
-        i = idx / 3
+        i = idx // 3
         j = idx % 3
         for val in range(3):
             state[i][j] = val
@@ -151,7 +153,7 @@ class Agent(object):
                 elif self.verbose:
                     cells.append(NAMES[state[i][j]].center(6))
         if self.verbose:
-            print BOARD_FORMAT.format(*cells)
+            print(BOARD_FORMAT.format(*cells))
         self.backup(maxval)
         return maxmove
 
@@ -193,14 +195,14 @@ class Agent(object):
                         state[i][j] = EMPTY
                     else:
                         cells.append(NAMES[state[i][j]].center(3))
-            print BOARD_FORMAT.format(*cells)
+            print(BOARD_FORMAT.format(*cells))
 
     def statetuple(self, state):
         return (tuple(state[0]),tuple(state[1]),tuple(state[2]))
 
     def log(self, s):
         if self.verbose:
-            print s
+            print(s)
 
 class Human(object):
     def __init__(self, player):
@@ -208,14 +210,14 @@ class Human(object):
 
     def action(self, state):
         printboard(state)
-        action = raw_input('Your move? ')
+        action = str(input('Your move? '))
         return (int(action.split(',')[0]),int(action.split(',')[1]))
 
     def episode_over(self, winner):
         if winner == DRAW:
-            print 'Game over! It was a draw.'
+            print('Game over! It was a draw.')
         else:
-            print 'Game over! Winner: Player {0}'.format(winner)
+            print('Game over! Winner: Player {0}'.format(winner))
 
 def play(agent1, agent2):
     state = emptystate()
@@ -306,7 +308,7 @@ if __name__ == "__main__":
     perf = [[] for _ in range(len(series) + 1)]
     for i in range(10000):
         if i % 10 == 0:
-            print 'Game: {0}'.format(i)
+            print('Game: {0}'.format(i))
             probs = measure_performance_vs_random(p1, p2)
             writer.writerow(probs)
             f.flush()

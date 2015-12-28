@@ -1,5 +1,5 @@
-Reinforcement Learning in Tic-Tac-Toe
-=====================================
+# Reinforcement Learning in Tic-Tac-Toe
+> Implementation in Python (2 or 3), forked from [tansey/rl-tictactoe](https://github.com/tansey/rl-tictactoe).
 
 Reference implementation of the Tic-Tac-Toe value function learning agent described in Chapter 1 of 
 "Reinforcement Learning: An Introduction" by Sutton and Barto. The agent contains a lookup table that
@@ -22,10 +22,6 @@ by the opponent, the values will then usually all become 0.5 and the player is e
 Note that if you use a loss value of -1, then the agent learns to play the optimal strategy in the minimax
 sense.
 
-License
--------
-Created by Wesley Tansey
-
-1/21/2013
-
-Code released under the MIT license.
+## License
+- Created by Wesley Tansey, 1/21/2013
+- Code released under the [MIT license](http://mit-license.org).
