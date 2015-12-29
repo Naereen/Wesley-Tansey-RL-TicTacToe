@@ -1,4 +1,1 @@
-copy
-csv
-matplotlib
-random
+matplotlib>=1.4.3
