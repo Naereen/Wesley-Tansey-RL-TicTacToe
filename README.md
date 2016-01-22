@@ -1,7 +1,7 @@
 # Reinforcement Learning in 3x3 Tic-Tac-Toe, *learning by random self-playing*
 > Implementation in Python (2 or 3), forked from [tansey/rl-tictactoe](https://github.com/tansey/rl-tictactoe).
 
-A quick Python implementation of the **3x3** *Tic-Tac-Toe* **value function learning agent**, as described in Chapter 1 of
+A quick Python implementation of the **3x3** [Tic-Tac-Toe](https://en.wikipedia.org/wiki/Tic-Tac-Toe) **value function learning agent**, as described in Chapter 1 of
 [*"Reinforcement Learning: An Introduction"* by Sutton and Barto](http://webdocs.cs.ualberta.ca/~sutton/book/the-book.html).
 
 ----
@@ -21,8 +21,8 @@ See the figure below for an example of what is achieved with this rather simple 
 Numerical results are also available in the (long) [results.csv](./results.csv) CSV file.
 
 ### Limitation
-> Only 3 by 3 (3x3) Tic-Tac-Toe is implemented.
-> [See this other project for a higher-dimensional Tic-Tac-Toe](http://naereen.github.io/Pengkun--Master-Thesis--2015/).
+> - Only 3 by 3 (3x3) Tic-Tac-Toe is implemented.
+> - [See this other project for a higher-dimensional Tic-Tac-Toe](http://naereen.github.io/Pengkun--Master-Thesis--2015/).
 
 ----
 
@@ -52,6 +52,6 @@ Note that if you use a loss value of -1, then the agent learns to play the optim
 ----
 
 ### License and authors
-- Forked and cleaned up by [Lilian Besson (Naereen)](https://github.com/Naereen), 28/12/2015,
-- Created by [Wesley Tansey](https://github.com/tansey/), 1/21/2013,
+- Forked and cleaned up by [Lilian Besson (Naereen)](https://github.com/Naereen), 28/12/2015, for [my MVA master project for the "Reinforcement Learning" course](https://bitbucket.org/lbesson/mva15-project-graph-reinforcement-learning/).
+- Created by [Wesley Tansey](https://github.com/tansey/), 1/21/2013.
 - Code released under the [MIT license](http://lbesson.mit-license.org).
