@@ -24,7 +24,7 @@ Numerical results are also available in the (long) [results.csv](./results.csv) 
 
 ### Limitation :dizzy:
 > - Only 3 by 3 (3x3) Tic-Tac-Toe is implemented.
-> - [See this other project for a higher-dimensional Tic-Tac-Toe](http://naereen.github.io/Pengkun--Master-Thesis--2015/).
+> - [See this other project for a higher-dimensional Tic-Tac-Toe](http://naereen.github.io/Wesley-Tansey-RL-TicTacToe/).
 
 ----
 
@@ -53,9 +53,18 @@ Note that if you use a loss value of -1, then the agent learns to play the optim
 
 ----
 
-### :scroll: License and authors
+### :scroll: Authors
 - Forked and cleaned up by [Lilian Besson (Naereen)](https://github.com/Naereen), 28/12/2015, for [my MVA master project for the "Reinforcement Learning" course](https://bitbucket.org/lbesson/mva15-project-graph-reinforcement-learning/).
 - Created by [Wesley Tansey](https://github.com/tansey/), 1/21/2013.
-- Code released under the [MIT license](http://lbesson.mit-license.org).
 
-[![Analytics](https://ga-beacon.appspot.com/UA-38514290-17/github.com/Naereen/Wesley-Tansey-RL-TicTacToe/README.md?pixel)](https://github.com/Naereen/Wesley-Tansey-RL-TicTacToe/)
+### :scroll: License ? [![GitHub license](https://img.shields.io/github/license/Naereen/Wesley-Tansey-RL-TicTacToe.svg)](https://github.com/Naereen/Wesley-Tansey-RL-TicTacToe/blob/master/LICENSE)
+[MIT Licensed](https://lbesson.mit-license.org/) (file [LICENSE.txt](LICENSE.txt)).
+
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-no-red.svg)](https://GitHub.com/Naereen/Wesley-Tansey-RL-TicTacToe/graphs/commit-activity)
+[![Ask Me Anything !](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)](https://GitHub.com/Naereen/ama)
+[![Analytics](https://ga-beacon.appspot.com/UA-38514290-17/github.com/Naereen/Wesley-Tansey-RL-TicTacToe/README.md?pixel)](https://GitHub.com/Naereen/Wesley-Tansey-RL-TicTacToe/)
+
+[![ForTheBadge uses-badges](http://ForTheBadge.com/images/badges/uses-badges.svg)](http://ForTheBadge.com)
+[![ForTheBadge uses-git](http://ForTheBadge.com/images/badges/uses-git.svg)](https://GitHub.com/)
+
+[![ForTheBadge built-with-science](http://ForTheBadge.com/images/badges/built-with-science.svg)](https://GitHub.com/Naereen/)
