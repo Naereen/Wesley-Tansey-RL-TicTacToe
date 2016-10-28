@@ -7,7 +7,7 @@ A quick Python implementation of the **3x3** [Tic-Tac-Toe](https://en.wikipedia.
 ----
 
 ### Usage of this program :memo:
-This implementation is simply [one Python file (``tictactoe.py``)](./tictactoe.py):
+This implementation is simply [one Python file (`tictactoe.py`)](./tictactoe.py):
 
 ```bash
 # Run this program and keep its output
@@ -15,6 +15,8 @@ python2 tictactoe.py | tee ./tictactoe.log
 ```
 
 The code is [pylint-valid](https://www.pylint.org/) with both Python 2 and 3 (2.7+ and 3.4+).
+
+[![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 
 ### Example :muscle:
 See the figure below for an example of what is achieved with this rather simple implementation:
@@ -54,11 +56,11 @@ Note that if you use a loss value of -1, then the agent learns to play the optim
 ----
 
 ### :scroll: Authors
-- Forked and cleaned up by [Lilian Besson (Naereen)](https://github.com/Naereen), 28/12/2015, for [my MVA master project for the "Reinforcement Learning" course](https://bitbucket.org/lbesson/mva15-project-graph-reinforcement-learning/).
+- Forked and cleaned up by [Lilian Besson (Naereen)](https://github.com/Naereen), the 28/12/2015, for [my MVA master project for the "Reinforcement Learning" course](https://bitbucket.org/lbesson/mva15-project-graph-reinforcement-learning/).
 - Created by [Wesley Tansey](https://github.com/tansey/), 1/21/2013.
 
 ### :scroll: License ? [![GitHub license](https://img.shields.io/github/license/Naereen/Wesley-Tansey-RL-TicTacToe.svg)](https://github.com/Naereen/Wesley-Tansey-RL-TicTacToe/blob/master/LICENSE)
-[MIT Licensed](https://lbesson.mit-license.org/) (file [LICENSE.txt](LICENSE.txt)).
+[MIT Licensed](https://lbesson.mit-license.org/) (file [LICENSE](LICENSE)).
 
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-no-red.svg)](https://GitHub.com/Naereen/Wesley-Tansey-RL-TicTacToe/graphs/commit-activity)
 [![Ask Me Anything !](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)](https://GitHub.com/Naereen/ama)
